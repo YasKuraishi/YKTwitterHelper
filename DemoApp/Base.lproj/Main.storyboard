@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4511" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3745"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rmm-Yq-Pe1"/>
+                        <viewControllerLayoutGuide type="bottom" id="A9l-we-lAg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0J6-xi-Fan">
+                                <rect key="frame" x="20" y="49" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Test Auth">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="testAuthTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="lTG-99-wMe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8L5-90-nNe">
+                                <rect key="frame" x="20" y="102" width="280" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Test Reverse Auth">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="reverseAuthTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="7g1-4q-esM"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z7H-hO-xnb">
+                                <rect key="frame" x="0.0" y="189" width="320" height="291"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Twitter oAuth Result" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TDa-8p-boa">
+                                <rect key="frame" x="20" y="160" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="PFg-IK-NZS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Z7H-hO-xnb" firstAttribute="top" secondItem="TDa-8p-boa" secondAttribute="bottom" constant="8" id="8ms-XW-Due"/>
+                            <constraint firstItem="8L5-90-nNe" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="Cdg-Fc-rsR"/>
+                            <constraint firstItem="0J6-xi-Fan" firstAttribute="top" secondItem="Rmm-Yq-Pe1" secondAttribute="bottom" constant="29" id="NJT-BU-yCK"/>
+                            <constraint firstAttribute="trailing" secondItem="TDa-8p-boa" secondAttribute="trailing" constant="20" id="Q6x-UM-ydj"/>
+                            <constraint firstItem="Z7H-hO-xnb" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="YQN-mA-Skw"/>
+                            <constraint firstAttribute="trailing" secondItem="0J6-xi-Fan" secondAttribute="trailing" constant="20" id="ZVX-Xw-M6d"/>
+                            <constraint firstAttribute="trailing" secondItem="8L5-90-nNe" secondAttribute="trailing" constant="20" id="bTQ-LJ-2ue"/>
+                            <constraint firstItem="TDa-8p-boa" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="gBH-9o-jeA"/>
+                            <constraint firstItem="A9l-we-lAg" firstAttribute="top" secondItem="Z7H-hO-xnb" secondAttribute="bottom" id="iRf-JW-Nz1"/>
+                            <constraint firstAttribute="trailing" secondItem="Z7H-hO-xnb" secondAttribute="trailing" id="jZ8-0k-VoL"/>
+                            <constraint firstItem="8L5-90-nNe" firstAttribute="top" secondItem="0J6-xi-Fan" secondAttribute="bottom" constant="23" id="nBf-1R-Fev"/>
+                            <constraint firstItem="0J6-xi-Fan" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="r1K-em-lgT"/>
+                            <constraint firstItem="TDa-8p-boa" firstAttribute="top" secondItem="8L5-90-nNe" secondAttribute="bottom" constant="25" id="x7B-m9-OOj"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="tokenTextView" destination="Z7H-hO-xnb" id="og0-wP-lF6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="125" y="177"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
