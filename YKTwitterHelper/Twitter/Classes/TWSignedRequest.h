@@ -26,13 +26,11 @@
 
 #import <Foundation/Foundation.h>
 
-enum TWSignedRequestMethod {
+typedef enum {
     TWSignedRequestMethodGET,
     TWSignedRequestMethodPOST,
     TWSignedRequestMethodDELETE
-};
-
-typedef enum TWSignedRequestMethod TWSignedRequestMethod;
+} TWSignedRequestMethod;
 
 typedef void(^TWSignedRequestHandler) (NSData *data, NSURLResponse *response, NSError *error);
 
@@ -44,7 +42,7 @@ typedef void(^TWSignedRequestHandler) (NSData *data, NSURLResponse *response, NS
 @property (nonatomic, copy) NSString *consumerSecret;
 
 // Creates a new request
-- (id)initWithURL:(NSURL *)url parameters:(NSDictionary *)parameters requestMethod:(TWSignedRequestMethod)requestMethod;
+- (instancetype)initWithURL:(NSURL *)url parameters:(NSDictionary *)parameters requestMethod:(TWSignedRequestMethod)requestMethod;
 
 // Perform the request, and notify handler of results
 - (void)performRequestWithHandler:(TWSignedRequestHandler)handler;

@@ -44,15 +44,13 @@
     NSOperationQueue *_signedRequestQueue;
 }
 
-- (NSURLRequest *)_buildRequest;
-
 @end
 
 @implementation TWSignedRequest
-@synthesize authToken = _authToken;
-@synthesize authTokenSecret = _authTokenSecret;
 
-- (id)initWithURL:(NSURL *)url parameters:(NSDictionary *)parameters requestMethod:(TWSignedRequestMethod)requestMethod
+#pragma mark - Public Methods
+
+- (instancetype)initWithURL:(NSURL *)url parameters:(NSDictionary *)parameters requestMethod:(TWSignedRequestMethod)requestMethod
 {
     self = [super init];
     if (self) {
@@ -63,6 +61,16 @@
     }
     return self;
 }
+
+- (void)performRequestWithHandler:(TWSignedRequestHandler)handler
+{
+    NSURLRequest *request = [self _buildRequest];
+    [NSURLConnection sendAsynchronousRequest:request queue:_signedRequestQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        handler(data, response, connectionError);
+    }];
+}
+
+#pragma mark - Private Method
 
 - (NSURLRequest *)_buildRequest
 {
@@ -82,8 +90,7 @@
     
     //  Build our parameter string
     NSMutableString *paramsAsString = [[NSMutableString alloc] init];
-    [_parameters enumerateKeysAndObjectsUsingBlock:
-     ^(id key, id obj, BOOL *stop) {
+    [_parameters enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
          [paramsAsString appendFormat:@"%@=%@&", key, obj];
      }];
     
@@ -97,14 +104,6 @@
     [request setHTTPBody:bodyData];
     
     return request;
-}
-
-- (void)performRequestWithHandler:(TWSignedRequestHandler)handler
-{
-    NSURLRequest *request = [self _buildRequest];
-    [NSURLConnection sendAsynchronousRequest:request queue:_signedRequestQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        handler(data, response, connectionError);
-    }];
 }
 
 @end
