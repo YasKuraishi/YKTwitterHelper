@@ -12,7 +12,6 @@
 #import "OAuth+Additions.h"
 #import "TWAPIManager.h"
 #import "TWSignedRequest.h"
-#import "AppDelegate.h"
 
 #define NSErrorFromString(cd, msg) [NSError errorWithDomain:@"TwitterHelper" code:cd userInfo:@{@"NSLocalizedRecoverySuggestion": msg}]
 #define NoAccountFoundError         NSErrorFromString(1, @"You must add a Twitter account in settings before using it")
