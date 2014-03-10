@@ -1,13 +1,13 @@
 YKTwitterHelper
 ===============
 
-Blocks based Twitter Auth and ReverseAuth to fetch `oauth_token` and `oauth_token_secret`. 
+Blocks based Twitter Auth and ReverseAuth to fetch `oauth_access_token` and `oauth_token_secret`. 
 
 ### Overview
 
 This is basically a refactor of Sean Cook's [https://github.com/seancook/TWReverseAuthExample](https://github.com/seancook/TWReverseAuthExample) to make it super easy to use by simply dragging and dropping to a project. 
 
-There are literally 3 small steps from setup to getting your `oauth_token` and `oauth_token_secret` from Twitter.
+There are literally 3 small steps from setup to getting your `oauth_access_token` and `oauth_token_secret` from Twitter.
 
 ### How To Use
 
@@ -18,7 +18,7 @@ There are literally 3 small steps from setup to getting your `oauth_token` and `
     YKTwitterHelper *twitterHelper = [[YKTwitterHelper alloc] initWithKey:kTWConsumerKey 
     															andSecret:kTWConsumerSecret];
     											
-3) Use following method get `oauth_token` and `oauth_token_secret` via **reverse auth** as below:
+3) Use following method get `oauth_access_token` and `oauth_token_secret` via **reverse auth** as below:
 
 	[twitterHelper reverseAuthWithSuccess:^(NSDictionary *data) {
         NSLog (@"%@", [data descriptionInStringsFileFormat]);
