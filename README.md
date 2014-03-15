@@ -5,6 +5,8 @@ Blocks based Twitter Auth and ReverseAuth to fetch `oauth_access_token` and `oau
 
 ### Overview
 
+You need Twitter `oauth_access_token` and `oauth_token_secret` to perform sharing on the server side where user authentication is taking place on an iOS device.
+
 This is basically a refactor of Sean Cook's [https://github.com/seancook/TWReverseAuthExample](https://github.com/seancook/TWReverseAuthExample) to make it super easy to use by simply dragging and dropping to a project. 
 
 There are literally 3 small steps from setup to getting your `oauth_access_token` and `oauth_token_secret` from Twitter.
