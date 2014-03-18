@@ -13,7 +13,7 @@ There are literally 3 small steps from setup to getting your `oauth_access_token
 
 ### How To Use
 
-1) Drag and drop **YKTwitterHelper** folder to your project.
+1) Drag and drop **YKTwitterHelper** folder to your project or use `pod 'YKTwitterHelper'` if using `CocoaPods  `
 
 2) Create an instance: 
     
