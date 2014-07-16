@@ -56,10 +56,10 @@
     
     ACAccountStore *accountStore = [ACAccountStore new];
     ACAccountType *twitterType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-
     __weak YATTwitterHelper *weakSelf = self;
+    
     [accountStore requestAccessToAccountsWithType:twitterType options:NULL completion:^(BOOL granted, NSError *error) {
-        __unsafe_unretained YATTwitterHelper *newSelf = weakSelf;
+        __strong YATTwitterHelper *newSelf = weakSelf;
         
         if (granted) {
             self.accounts = [accountStore accountsWithAccountType:twitterType];
@@ -81,14 +81,22 @@
             }
             
         } else {
-            if (onError) onError(AccessDeniedError);
+            if (onError) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    onError(AccessDeniedError);
+                });
+            }
         }
     }];
 }
 
 - (void)reverseAuthWithSuccess:(ReverseAuthSuccessCallback)onSuccess failure:(FailureCallback)onError {
+    __weak YATTwitterHelper *weakSelf = self;
+    
     [self authWithSuccess:^(ACAccount *account) {
-        [self.apiManager performReverseAuthForAccount:account withHandler:^(NSData *responseData, NSError *error) {
+        __strong YATTwitterHelper *newSelf = weakSelf;
+        
+        [newSelf.apiManager performReverseAuthForAccount:account withHandler:^(NSData *responseData, NSError *error) {
             if (responseData) {
                 NSString *responseStr = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
                 NSLog(@"Twitter Reverse Auth Response: %@", responseStr);
