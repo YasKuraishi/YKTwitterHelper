@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "YKTwitterHelper"
-  s.version      = “0.0.3”
+  s.version      = "0.0.3"
   s.summary      = "Blocks based Twitter ReverseAuth to fetch oauth_access_token and oauth_token_secret"
   s.homepage     = "https://github.com/YasKuraishi/YKTwitterHelper"
   s.license      = 'MIT'
@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.social_media_url = "http://twitter.com/@YasKuraishi"
   s.platform     = :ios, '7.0'
   s.ios.deployment_target = '6.0'
-  s.source       = { :git => "https://github.com/YasKuraishi/YKTwitterHelper.git", :tag => “0.0.3” }
+  s.source       = { :git => "https://github.com/YasKuraishi/YKTwitterHelper.git", :tag => "0.0.3" }
   s.source_files = 'YKTwitterHelper', 'YKTwitterHelper/**/*.{h,m}'
   s.frameworks   = 'Social', 'Accounts', 'UIKit', 'CoreGraphics'
   s.requires_arc = true
